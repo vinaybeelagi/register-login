@@ -21,6 +21,7 @@ const Login = () => {
             console.log('Login failed');
             // You can add additional logic such as displaying error message
         }
+        navigate("/Home");
     };
 
     return (

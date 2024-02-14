@@ -17,7 +17,7 @@ const Register = () => {
         const updatedUsers = [...users, input];
         localStorage.setItem("users", JSON.stringify(updatedUsers));
         setInput({ name: "", email: "", password: "" });
-        navigate("/login");
+        navigate("/Login");
     };
 
     return (
