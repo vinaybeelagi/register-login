@@ -1,3 +1,5 @@
+// Login.js
+
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -11,17 +13,14 @@ const Login = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const storedUser = JSON.parse(localStorage.getItem("user"));
-        if (storedUser && storedUser.email === input.email && storedUser.password === input.password) {
-            // Login successful
-            console.log('Login successful');
-            // You can add additional logic such as setting authentication state
+        const storedUsers = JSON.parse(localStorage.getItem("users")) || [];
+        const currentUser = storedUsers.find(user => user.email === input.email && user.password === input.password);
+        if (currentUser) {
+            localStorage.setItem("loggedIn", true);
+            navigate("/");
         } else {
-            // Login failed
             console.log('Login failed');
-            // You can add additional logic such as displaying error message
         }
-        navigate("/Home");
     };
 
     return (

@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
-import { useNavigate } from'react-router-dom';
+// Register.js
 
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
     const [input, setInput] = useState({
@@ -17,7 +18,7 @@ const Register = () => {
         const updatedUsers = [...users, input];
         localStorage.setItem("users", JSON.stringify(updatedUsers));
         setInput({ name: "", email: "", password: "" });
-        navigate("/Login");
+        navigate("/login");
     };
 
     return (
